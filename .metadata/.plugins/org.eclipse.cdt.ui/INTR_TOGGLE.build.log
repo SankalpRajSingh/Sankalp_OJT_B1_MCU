@@ -1,0 +1,10 @@
+13:09:23 **** Incremental Build of configuration Debug for project INTR_TOGGLE ****
+make -j12 all 
+arm-none-eabi-size   INTR_TOGGLE.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6440	     20	   1572	   8032	   1f60	INTR_TOGGLE.elf
+Finished building: default.size.stdout
+ 
+
+13:09:24 Build Finished. 0 errors, 0 warnings. (took 150ms)
+

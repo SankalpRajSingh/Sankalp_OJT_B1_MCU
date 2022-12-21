@@ -1,0 +1,34 @@
+12:16:16 **** Incremental Build of configuration Debug for project RFID_Display ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:102:5: warning: implicit declaration of function 'HAL_delay'; did you mean 'HAL_Delay'? [-Wimplicit-function-declaration]
+  102 |     HAL_delay(1000);
+      |     ^~~~~~~~~
+      |     HAL_Delay
+../Core/Src/main.c:104:5: warning: implicit declaration of function 'LCD_string' [-Wimplicit-function-declaration]
+  104 |     LCD_string(str);
+      |     ^~~~~~~~~~
+../Core/Src/main.c:105:5: warning: implicit declaration of function 'delay' [-Wimplicit-function-declaration]
+  105 |     delay(500);
+      |     ^~~~~
+../Core/Src/main.c:106:5: warning: implicit declaration of function 'LCD_command' [-Wimplicit-function-declaration]
+  106 |     LCD_command(0xC0);
+      |     ^~~~~~~~~~~
+../Core/Src/main.c:67:7: warning: unused variable 'RFID' [-Wunused-variable]
+   67 |  char RFID[12];
+      |       ^~~~
+../Core/Src/main.c: In function 'MX_GPIO_Init':
+../Core/Src/main.c:177:21: error: 'LED_Output_GPIO_Port' undeclared (first use in this function); did you mean 'LED_OUTPUT_GPIO_Port'?
+  177 |   HAL_GPIO_WritePin(LED_Output_GPIO_Port, LED_Output_Pin, GPIO_PIN_RESET);
+      |                     ^~~~~~~~~~~~~~~~~~~~
+      |                     LED_OUTPUT_GPIO_Port
+../Core/Src/main.c:177:21: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:177:43: error: 'LED_Output_Pin' undeclared (first use in this function)
+  177 |   HAL_GPIO_WritePin(LED_Output_GPIO_Port, LED_Output_Pin, GPIO_PIN_RESET);
+      |                                           ^~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+
+12:16:16 Build Failed. 3 errors, 5 warnings. (took 226ms)
+

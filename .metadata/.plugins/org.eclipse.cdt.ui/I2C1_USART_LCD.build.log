@@ -1,0 +1,10 @@
+12:23:50 **** Incremental Build of configuration Debug for project I2C1_USART_LCD ****
+make -j12 all 
+arm-none-eabi-size   I2C1_USART_LCD.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16052	     28	   1740	  17820	   459c	I2C1_USART_LCD.elf
+Finished building: default.size.stdout
+ 
+
+12:23:50 Build Finished. 0 errors, 0 warnings. (took 217ms)
+

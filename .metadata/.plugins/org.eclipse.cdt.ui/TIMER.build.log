@@ -1,0 +1,17 @@
+16:52:11 **** Incremental Build of configuration Debug for project TIMER ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/TIM10_reg.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/TIM10_reg.d" -MT"Core/Src/TIM10_reg.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/TIM10_reg.o"
+arm-none-eabi-gcc -o "TIMER.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\PHY202209EF07\STM32CubeIDE\workspace_1.10.1\TIMER\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TIMER.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: TIMER.elf
+ 
+arm-none-eabi-size   TIMER.elf 
+arm-none-eabi-objdump -h -S  TIMER.elf  > "TIMER.list"
+   text	   data	    bss	    dec	    hex	filename
+    880	      8	   1568	   2456	    998	TIMER.elf
+Finished building: default.size.stdout
+ 
+Finished building: TIMER.list
+ 
+
+16:52:12 Build Finished. 0 errors, 0 warnings. (took 457ms)
+

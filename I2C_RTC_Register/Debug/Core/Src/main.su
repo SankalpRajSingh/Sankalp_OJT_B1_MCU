@@ -1,0 +1,13 @@
+../Core/Src/main.c:57:7:main	16	static
+../Core/Src/main.c:95:8:I2C1_init	4	static
+../Core/Src/main.c:120:8:I2C1_burstWrite	32	static
+../Core/Src/main.c:146:8:I2C1_burstRead	32	static
+../Core/Src/main.c:188:8:Get_Time	8	static
+../Core/Src/main.c:202:8:delay	24	static
+../Core/Src/main.c:210:7:BCDtoDecimal	16	static
+../Core/Src/main.c:217:8:LCD_string	24	static
+../Core/Src/main.c:226:8:LCD_init	8	static
+../Core/Src/main.c:244:8:PORTS_init	4	static
+../Core/Src/main.c:258:8:LCD_nibble_write	16	static
+../Core/Src/main.c:273:8:LCD_command	16	static
+../Core/Src/main.c:283:8:LCD_data	16	static

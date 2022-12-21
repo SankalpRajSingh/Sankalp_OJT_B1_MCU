@@ -1,0 +1,10 @@
+17:10:50 **** Build of configuration Debug for project BSRR_TOGGLE ****
+make -j12 all 
+arm-none-eabi-size   BSRR_TOGGLE.elf 
+   text	   data	    bss	    dec	    hex	filename
+    944	     12	   1572	   2528	    9e0	BSRR_TOGGLE.elf
+Finished building: default.size.stdout
+ 
+
+17:10:50 Build Finished. 0 errors, 0 warnings. (took 201ms)
+

@@ -1,0 +1,10 @@
+09:28:14 **** Incremental Build of configuration Debug for project LED_TOGGLE ****
+make -j12 all 
+arm-none-eabi-size   LED_TOGGLE.elf 
+   text	   data	    bss	    dec	    hex	filename
+     88	      8	   1568	   1664	    680	LED_TOGGLE.elf
+Finished building: default.size.stdout
+ 
+
+09:28:14 Build Finished. 0 errors, 0 warnings. (took 164ms)
+

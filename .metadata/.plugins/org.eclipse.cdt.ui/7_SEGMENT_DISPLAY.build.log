@@ -1,0 +1,10 @@
+16:53:39 **** Build of configuration Debug for project 7_SEGMENT_DISPLAY ****
+make -j12 all 
+arm-none-eabi-size   7_SEGMENT_DISPLAY.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6500	     20	   1572	   8092	   1f9c	7_SEGMENT_DISPLAY.elf
+Finished building: default.size.stdout
+ 
+
+16:53:39 Build Finished. 0 errors, 0 warnings. (took 215ms)
+

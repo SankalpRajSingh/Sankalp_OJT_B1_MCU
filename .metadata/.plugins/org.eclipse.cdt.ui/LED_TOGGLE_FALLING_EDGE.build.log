@@ -1,0 +1,17 @@
+11:29:39 **** Incremental Build of configuration Debug for project LED_TOGGLE_FALLING_EDGE ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "LED_TOGGLE_FALLING_EDGE.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\PHY202209EF07\STM32CubeIDE\workspace_1.10.1\LED_TOGGLE_FALLING_EDGE\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LED_TOGGLE_FALLING_EDGE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LED_TOGGLE_FALLING_EDGE.elf
+ 
+arm-none-eabi-size   LED_TOGGLE_FALLING_EDGE.elf 
+arm-none-eabi-objdump -h -S  LED_TOGGLE_FALLING_EDGE.elf  > "LED_TOGGLE_FALLING_EDGE.list"
+   text	   data	    bss	    dec	    hex	filename
+   1184	     12	   1572	   2768	    ad0	LED_TOGGLE_FALLING_EDGE.elf
+Finished building: default.size.stdout
+ 
+Finished building: LED_TOGGLE_FALLING_EDGE.list
+ 
+
+11:29:40 Build Finished. 0 errors, 0 warnings. (took 395ms)
+

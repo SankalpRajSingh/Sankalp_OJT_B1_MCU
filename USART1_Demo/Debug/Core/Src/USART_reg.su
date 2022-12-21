@@ -1,0 +1,5 @@
+../Core/Src/USART_reg.c:6:5:main	16	static
+../Core/Src/USART_reg.c:17:6:Usart_Init	4	static
+../Core/Src/USART_reg.c:31:6:Usart_Read	4	static
+../Core/Src/USART_reg.c:36:6:USART1_write	16	static
+../Core/Src/USART_reg.c:41:6:delay	24	static

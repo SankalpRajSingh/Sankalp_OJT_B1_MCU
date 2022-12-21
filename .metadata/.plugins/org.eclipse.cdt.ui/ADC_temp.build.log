@@ -1,0 +1,21 @@
+11:09:08 **** Incremental Build of configuration Debug for project ADC_temp ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:116:18: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '3092' to '20' [-Woverflow]
+  116 |      LCD_command(0xC14);
+      |                  ^~~~~
+arm-none-eabi-gcc -o "ADC_temp.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\PHY202209EF07\STM32CubeIDE\workspace_1.10.1\ADC_temp\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_temp.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC_temp.elf
+ 
+arm-none-eabi-size   ADC_temp.elf 
+arm-none-eabi-objdump -h -S  ADC_temp.elf  > "ADC_temp.list"
+   text	   data	    bss	    dec	    hex	filename
+   9512	     20	   1644	  11176	   2ba8	ADC_temp.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC_temp.list
+ 
+
+11:09:10 Build Finished. 0 errors, 1 warnings. (took 1s.570ms)
+

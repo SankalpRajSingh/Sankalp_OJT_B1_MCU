@@ -1,0 +1,152 @@
+12:10:49 **** Incremental Build of configuration Debug for project RFID_PROJECT ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:102:5: warning: implicit declaration of function 'HAL_delay'; did you mean 'HAL_Delay'? [-Wimplicit-function-declaration]
+  102 |     HAL_delay(1000);
+      |     ^~~~~~~~~
+      |     HAL_Delay
+../Core/Src/main.c:104:5: warning: implicit declaration of function 'LCD_string' [-Wimplicit-function-declaration]
+  104 |     LCD_string(str);
+      |     ^~~~~~~~~~
+../Core/Src/main.c:105:5: warning: implicit declaration of function 'delay' [-Wimplicit-function-declaration]
+  105 |     delay(500);
+      |     ^~~~~
+../Core/Src/main.c:106:5: warning: implicit declaration of function 'LCD_command' [-Wimplicit-function-declaration]
+  106 |     LCD_command(0xC0);
+      |     ^~~~~~~~~~~
+../Core/Src/main.c:67:7: warning: unused variable 'RFID' [-Wunused-variable]
+   67 |  char RFID[12];
+      |       ^~~~
+../Core/Src/main.c: In function 'MX_GPIO_Init':
+../Core/Src/main.c:177:21: error: 'LED_Output_GPIO_Port' undeclared (first use in this function); did you mean 'RFID_Input_GPIO_Port'?
+  177 |   HAL_GPIO_WritePin(LED_Output_GPIO_Port, LED_Output_Pin, GPIO_PIN_RESET);
+      |                     ^~~~~~~~~~~~~~~~~~~~
+      |                     RFID_Input_GPIO_Port
+../Core/Src/main.c:177:21: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:177:43: error: 'LED_Output_Pin' undeclared (first use in this function)
+  177 |   HAL_GPIO_WritePin(LED_Output_GPIO_Port, LED_Output_Pin, GPIO_PIN_RESET);
+      |                                           ^~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:293:5: error: redefinition of 'main'
+  293 | int main(void)
+      |     ^~~~
+../Core/Src/main.c:65:5: note: previous definition of 'main' was here
+   65 | int main(void)
+      |     ^~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:295:7: warning: unused variable 'RFID' [-Wunused-variable]
+  295 |  char RFID[12];
+      |       ^~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:354:6: error: redefinition of 'SystemClock_Config'
+  354 | void SystemClock_Config(void)
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:126:6: note: previous definition of 'SystemClock_Config' was here
+  126 | void SystemClock_Config(void)
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:396:13: error: redefinition of 'MX_GPIO_Init'
+  396 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:168:13: note: previous definition of 'MX_GPIO_Init' was here
+  168 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'MX_GPIO_Init':
+../Core/Src/main.c:405:21: error: 'LED_Output_GPIO_Port' undeclared (first use in this function); did you mean 'RFID_Input_GPIO_Port'?
+  405 |   HAL_GPIO_WritePin(LED_Output_GPIO_Port, LED_Output_Pin, GPIO_PIN_RESET);
+      |                     ^~~~~~~~~~~~~~~~~~~~
+      |                     RFID_Input_GPIO_Port
+../Core/Src/main.c:405:43: error: 'LED_Output_Pin' undeclared (first use in this function)
+  405 |   HAL_GPIO_WritePin(LED_Output_GPIO_Port, LED_Output_Pin, GPIO_PIN_RESET);
+      |                                           ^~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:430:6: error: redefinition of 'Error_Handler'
+  430 | void Error_Handler(void)
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:202:6: note: previous definition of 'Error_Handler' was here
+  202 | void Error_Handler(void)
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:521:5: error: redefinition of 'main'
+  521 | int main(void)
+      |     ^~~~
+../Core/Src/main.c:65:5: note: previous definition of 'main' was here
+   65 | int main(void)
+      |     ^~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:523:7: warning: unused variable 'RFID' [-Wunused-variable]
+  523 |  char RFID[12];
+      |       ^~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:582:6: error: redefinition of 'SystemClock_Config'
+  582 | void SystemClock_Config(void)
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:126:6: note: previous definition of 'SystemClock_Config' was here
+  126 | void SystemClock_Config(void)
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:624:13: error: redefinition of 'MX_GPIO_Init'
+  624 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:396:13: note: previous definition of 'MX_GPIO_Init' was here
+  396 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'MX_GPIO_Init':
+../Core/Src/main.c:633:21: error: 'LED_Output_GPIO_Port' undeclared (first use in this function); did you mean 'RFID_Input_GPIO_Port'?
+  633 |   HAL_GPIO_WritePin(LED_Output_GPIO_Port, LED_Output_Pin, GPIO_PIN_RESET);
+      |                     ^~~~~~~~~~~~~~~~~~~~
+      |                     RFID_Input_GPIO_Port
+../Core/Src/main.c:633:43: error: 'LED_Output_Pin' undeclared (first use in this function)
+  633 |   HAL_GPIO_WritePin(LED_Output_GPIO_Port, LED_Output_Pin, GPIO_PIN_RESET);
+      |                                           ^~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:658:6: error: redefinition of 'Error_Handler'
+  658 | void Error_Handler(void)
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:202:6: note: previous definition of 'Error_Handler' was here
+  202 | void Error_Handler(void)
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:749:5: error: redefinition of 'main'
+  749 | int main(void)
+      |     ^~~~
+../Core/Src/main.c:65:5: note: previous definition of 'main' was here
+   65 | int main(void)
+      |     ^~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:751:7: warning: unused variable 'RFID' [-Wunused-variable]
+  751 |  char RFID[12];
+      |       ^~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:810:6: error: redefinition of 'SystemClock_Config'
+  810 | void SystemClock_Config(void)
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:126:6: note: previous definition of 'SystemClock_Config' was here
+  126 | void SystemClock_Config(void)
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:852:13: error: redefinition of 'MX_GPIO_Init'
+  852 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:624:13: note: previous definition of 'MX_GPIO_Init' was here
+  624 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'MX_GPIO_Init':
+../Core/Src/main.c:861:21: error: 'LED_Output_GPIO_Port' undeclared (first use in this function); did you mean 'RFID_Input_GPIO_Port'?
+  861 |   HAL_GPIO_WritePin(LED_Output_GPIO_Port, LED_Output_Pin, GPIO_PIN_RESET);
+      |                     ^~~~~~~~~~~~~~~~~~~~
+      |                     RFID_Input_GPIO_Port
+../Core/Src/main.c:861:43: error: 'LED_Output_Pin' undeclared (first use in this function)
+  861 |   HAL_GPIO_WritePin(LED_Output_GPIO_Port, LED_Output_Pin, GPIO_PIN_RESET);
+      |                                           ^~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:886:6: error: redefinition of 'Error_Handler'
+  886 | void Error_Handler(void)
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:202:6: note: previous definition of 'Error_Handler' was here
+  202 | void Error_Handler(void)
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:852:13: warning: 'MX_GPIO_Init' defined but not used [-Wunused-function]
+  852 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+
+12:10:49 Build Failed. 21 errors, 9 warnings. (took 288ms)
+

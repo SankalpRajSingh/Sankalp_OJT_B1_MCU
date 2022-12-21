@@ -1,0 +1,10 @@
+17:10:51 **** Incremental Build of configuration Debug for project Gpi_Codeflow1 ****
+make -j12 all 
+arm-none-eabi-size   Gpi_Codeflow1.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9000	    120	   1592	  10712	   29d8	Gpi_Codeflow1.elf
+Finished building: default.size.stdout
+ 
+
+17:10:51 Build Finished. 0 errors, 0 warnings. (took 200ms)
+

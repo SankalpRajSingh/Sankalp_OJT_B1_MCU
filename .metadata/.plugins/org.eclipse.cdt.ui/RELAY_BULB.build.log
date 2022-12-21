@@ -1,0 +1,10 @@
+09:27:52 **** Incremental Build of configuration Debug for project RELAY_BULB ****
+make -j12 all 
+arm-none-eabi-size   RELAY_BULB.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1024	     12	   1572	   2608	    a30	RELAY_BULB.elf
+Finished building: default.size.stdout
+ 
+
+09:27:52 Build Finished. 0 errors, 0 warnings. (took 200ms)
+

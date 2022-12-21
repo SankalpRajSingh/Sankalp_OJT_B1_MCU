@@ -1,0 +1,5 @@
+../Core/Src/USART_Reg.c:13:6:Sconfig_Init	4	static
+../Core/Src/USART_Reg.c:23:6:USART_Send	16	static
+../Core/Src/USART_Reg.c:31:6:USART2_Tx	16	static
+../Core/Src/USART_Reg.c:37:6:delay	24	static
+../Core/Src/USART_Reg.c:45:5:main	8	static

@@ -1,0 +1,10 @@
+12:02:49 **** Incremental Build of configuration Debug for project MAX_7219 ****
+make -j12 all 
+arm-none-eabi-size   MAX_7219.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8124	     20	   1660	   9804	   264c	MAX_7219.elf
+Finished building: default.size.stdout
+ 
+
+12:02:49 Build Finished. 0 errors, 0 warnings. (took 154ms)
+

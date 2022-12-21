@@ -1,0 +1,10 @@
+11:10:56 **** Incremental Build of configuration Debug for project RFID_LCD_DISPLAY ****
+make -j12 all 
+arm-none-eabi-size   RFID_LCD_DISPLAY.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8048	     20	   1636	   9704	   25e8	RFID_LCD_DISPLAY.elf
+Finished building: default.size.stdout
+ 
+
+11:10:56 Build Finished. 0 errors, 0 warnings. (took 201ms)
+

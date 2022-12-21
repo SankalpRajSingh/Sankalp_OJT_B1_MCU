@@ -1,0 +1,30 @@
+13:04:04 **** Incremental Build of configuration Debug for project ADC_Timer ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_ADC_ConvCpltCallback':
+../Core/Src/main.c:111:29: warning: passing argument 1 of 'HAL_ADC_GetValue' from incompatible pointer type [-Wincompatible-pointer-types]
+  111 |  SensorVal=HAL_ADC_GetValue(&hadc1);
+      |                             ^~~~~~
+      |                             |
+      |                             ADC_HandleTypeDef **
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:295,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h:597:46: note: expected 'ADC_HandleTypeDef *' but argument is of type 'ADC_HandleTypeDef **'
+  597 | uint32_t HAL_ADC_GetValue(ADC_HandleTypeDef* hadc);
+      |                           ~~~~~~~~~~~~~~~~~~~^~~~
+arm-none-eabi-gcc -o "ADC_Timer.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\PHY202209EF07\STM32CubeIDE\workspace_1.10.1\ADC_Timer\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_Timer.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC_Timer.elf
+ 
+arm-none-eabi-size   ADC_Timer.elf 
+arm-none-eabi-objdump -h -S  ADC_Timer.elf  > "ADC_Timer.list"
+   text	   data	    bss	    dec	    hex	filename
+  10832	     20	   1716	  12568	   3118	ADC_Timer.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC_Timer.list
+ 
+
+13:04:04 Build Finished. 0 errors, 1 warnings. (took 517ms)
+

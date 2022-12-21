@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="724"/>
+		<item key="DIALOG_Y_ORIGIN" value="396"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value=""/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="HAL_SPI_Transmit"/>
+			<item value="Dutycycle"/>
+			<item value="DutyCycle"/>
+			<item value="Duty"/>
+			<item value="TIM10"/>
+			<item value="htim10"/>
+			<item value="huart2"/>
+			<item value="USART2"/>
+			<item value="&amp;huart2"/>
+			<item value="&amp;USART2_Handler"/>
+			<item value="&amp;USART_Handler"/>
+			<item value="EXTI15_10_IRQHandler"/>
+		</list>
+		<list key="replacehistory">
+			<item value="TIM11"/>
+			<item value="htim11"/>
+			<item value="huart1"/>
+			<item value="USART1"/>
+			<item value="&amp;huart1"/>
+			<item value="&amp;huart2"/>
+			<item value="EXTISankalp"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="807"/>
+		<item key="DIALOG_Y_ORIGIN" value="268"/>
+		<item key="DIALOG_WIDTH" value="322"/>
+		<item key="DIALOG_HEIGHT" value="391"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+</section>
