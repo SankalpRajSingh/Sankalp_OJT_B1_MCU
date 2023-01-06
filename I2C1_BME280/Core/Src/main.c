@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "BME280_STM32.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -55,8 +55,7 @@ static void MX_I2C1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint8_t tx_buff[4];
-uint8_t rx_buff[4];
+float Temperature, Pressure, Humidity;
 /* USER CODE END 0 */
 
 /**
@@ -86,13 +85,7 @@ int main(void)
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
-  MX_GPIO_Init();
-  MX_I2C1_Init();
-  /* USER CODE BEGIN 2 */
-  HAL_I2C_Master_Transmit(&hi2c1, 0xD0, 0x6b, 2, 10);
-  HAL_Delay(500);
-  HAL_I2C_Master_Receive(&hi2c1, 0xD0, rx_buff, 1, 10);
-  HAL_Delay(500);
+  BME280_Config(OSRS_2, OSRS_16, OSRS_1, MODE_NORMAL, T_SB_0p5, IIR_16);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -102,6 +95,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  BME280_Measure();
+	  HAL_Delay(500);
   }
   /* USER CODE END 3 */
 }

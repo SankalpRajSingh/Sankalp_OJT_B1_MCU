@@ -405,10 +405,10 @@ int main(void)
  800050c:	b29a      	uxth	r2, r3
  800050e:	4b0e      	ldr	r3, [pc, #56]	; (8000548 <main+0x6c>)
  8000510:	801a      	strh	r2, [r3, #0]
-  		  if(adc_value >= 4095)
+  		  if(adc_value >= 3000)
  8000512:	4b0d      	ldr	r3, [pc, #52]	; (8000548 <main+0x6c>)
  8000514:	881b      	ldrh	r3, [r3, #0]
- 8000516:	f640 72fe 	movw	r2, #4094	; 0xffe
+ 8000516:	f640 32b7 	movw	r2, #2999	; 0xbb7
  800051a:	4293      	cmp	r3, r2
  800051c:	d905      	bls.n	800052a <main+0x4e>
   		  {
@@ -419,10 +419,10 @@ int main(void)
  8000524:	f001 fa04 	bl	8001930 <HAL_GPIO_WritePin>
  8000528:	e7e2      	b.n	80004f0 <main+0x14>
   		  }
-  		  else if(adc_value < 4095)
+  		  else if(adc_value < 3000)
  800052a:	4b07      	ldr	r3, [pc, #28]	; (8000548 <main+0x6c>)
  800052c:	881b      	ldrh	r3, [r3, #0]
- 800052e:	f640 72fe 	movw	r2, #4094	; 0xffe
+ 800052e:	f640 32b7 	movw	r2, #2999	; 0xbb7
  8000532:	4293      	cmp	r3, r2
  8000534:	d8dc      	bhi.n	80004f0 <main+0x14>
   		  {

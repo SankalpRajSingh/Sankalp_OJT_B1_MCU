@@ -1,0 +1,17 @@
+10:09:12 **** Incremental Build of configuration Debug for project BULB_INTENSITY_CONTROL_USING_BULB ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "BULB_INTENSITY_CONTROL_USING_BULB.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\PHY202209EF07\STM32CubeIDE\workspace_1.10.1\BULB_INTENSITY_CONTROL_USING_BULB\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BULB_INTENSITY_CONTROL_USING_BULB.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BULB_INTENSITY_CONTROL_USING_BULB.elf
+ 
+arm-none-eabi-size   BULB_INTENSITY_CONTROL_USING_BULB.elf 
+arm-none-eabi-objdump -h -S  BULB_INTENSITY_CONTROL_USING_BULB.elf  > "BULB_INTENSITY_CONTROL_USING_BULB.list"
+   text	   data	    bss	    dec	    hex	filename
+   9164	     20	   1644	  10828	   2a4c	BULB_INTENSITY_CONTROL_USING_BULB.elf
+Finished building: default.size.stdout
+ 
+Finished building: BULB_INTENSITY_CONTROL_USING_BULB.list
+ 
+
+10:09:14 Build Finished. 0 errors, 0 warnings. (took 1s.678ms)
+

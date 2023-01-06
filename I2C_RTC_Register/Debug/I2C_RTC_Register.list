@@ -39,11 +39,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  17 .debug_line   00002ab7  00000000  00000000  000372b3  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00084338  00000000  00000000  00039d6a  2**0
+ 18 .debug_str    00084340  00000000  00000000  00039d6a  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000050  00000000  00000000  000be0a2  2**0
+ 19 .comment      00000050  00000000  00000000  000be0aa  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00000b1c  00000000  00000000  000be0f4  2**2
+ 20 .debug_frame  00000b1c  00000000  00000000  000be0fc  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -149,22 +149,22 @@ Disassembly of section .text:
 
        I2C1_init();
  8000286:	f000 f859 	bl	800033c <I2C1_init>
-       LCD_init();
- 800028a:	f000 fa5c 	bl	8000746 <LCD_init>
+       LCD_Init();
+ 800028a:	f000 fa5c 	bl	8000746 <LCD_Init>
        delay(10);
  800028e:	200a      	movs	r0, #10
  8000290:	f000 fa08 	bl	80006a4 <delay>
 
-   //    LCD_data('m');
-       LCD_string("TIME:");
+   //    LCD_Data('m');
+       LCD_String("TIME:");
  8000294:	4822      	ldr	r0, [pc, #136]	; (8000320 <main+0xa0>)
- 8000296:	f000 fa3a 	bl	800070e <LCD_string>
-       LCD_command(0xC0);
+ 8000296:	f000 fa3a 	bl	800070e <LCD_String>
+       LCD_Command(0xC0);
  800029a:	20c0      	movs	r0, #192	; 0xc0
- 800029c:	f000 fae6 	bl	800086c <LCD_command>
-       LCD_string("DATE:");
+ 800029c:	f000 fae6 	bl	800086c <LCD_Command>
+       LCD_String("DATE:");
  80002a0:	4820      	ldr	r0, [pc, #128]	; (8000324 <main+0xa4>)
- 80002a2:	f000 fa34 	bl	800070e <LCD_string>
+ 80002a2:	f000 fa34 	bl	800070e <LCD_String>
        I2C1_burstWrite(SLAVE_ADDR, 0x00, 7, timeDateToSet);
  80002a6:	4b20      	ldr	r3, [pc, #128]	; (8000328 <main+0xa8>)
  80002a8:	2207      	movs	r2, #7
@@ -174,9 +174,9 @@ Disassembly of section .text:
 
        while (1)
        {
-       	LCD_command(0x86);
+       	LCD_Command(0x86);
  80002b2:	2086      	movs	r0, #134	; 0x86
- 80002b4:	f000 fada 	bl	800086c <LCD_command>
+ 80002b4:	f000 fada 	bl	800086c <LCD_Command>
 
        	Get_Time();		//reading RTC data
  80002b8:	f000 f9a6 	bl	8000608 <Get_Time>
@@ -198,9 +198,9 @@ Disassembly of section .text:
        	delay(1);
  80002d8:	2001      	movs	r0, #1
  80002da:	f000 f9e3 	bl	80006a4 <delay>
-       	LCD_string(buffer);
+       	LCD_String(buffer);
  80002de:	4815      	ldr	r0, [pc, #84]	; (8000334 <main+0xb4>)
- 80002e0:	f000 fa15 	bl	800070e <LCD_string>
+ 80002e0:	f000 fa15 	bl	800070e <LCD_String>
        	delay(1);
  80002e4:	2001      	movs	r0, #1
  80002e6:	f000 f9dd 	bl	80006a4 <delay>
@@ -222,19 +222,19 @@ Disassembly of section .text:
        	delay(1);
  8000306:	2001      	movs	r0, #1
  8000308:	f000 f9cc 	bl	80006a4 <delay>
-       	LCD_command(0xC6);
+       	LCD_Command(0xC6);
  800030c:	20c6      	movs	r0, #198	; 0xc6
- 800030e:	f000 faad 	bl	800086c <LCD_command>
-       	LCD_string(buffer);
+ 800030e:	f000 faad 	bl	800086c <LCD_Command>
+       	LCD_String(buffer);
  8000312:	4808      	ldr	r0, [pc, #32]	; (8000334 <main+0xb4>)
- 8000314:	f000 f9fb 	bl	800070e <LCD_string>
+ 8000314:	f000 f9fb 	bl	800070e <LCD_String>
        	//delay(1);
-       	//LCD_command(0x08);				//turn off the screen
+       	//LCD_Command(0x08);				//turn off the screen
        	//delay(200);
-       	LCD_command(0x0C);				//turn on the screen and cursor off
+       	LCD_Command(0x0C);				//turn on the screen and cursor off
  8000318:	200c      	movs	r0, #12
- 800031a:	f000 faa7 	bl	800086c <LCD_command>
-       	LCD_command(0x86);
+ 800031a:	f000 faa7 	bl	800086c <LCD_Command>
+       	LCD_Command(0x86);
  800031e:	e7c8      	b.n	80002b2 <main+0x32>
  8000320:	08001390 	.word	0x08001390
  8000324:	08001398 	.word	0x08001398
@@ -812,11 +812,11 @@ Disassembly of section .text:
  8000708:	f85d 7b04 	ldr.w	r7, [sp], #4
  800070c:	4770      	bx	lr
 
-0800070e <LCD_string>:
+0800070e <LCD_String>:
 
 
 
-  void LCD_string(char str[])
+  void LCD_String(char str[])
   {
  800070e:	b580      	push	{r7, lr}
  8000710:	b084      	sub	sp, #16
@@ -825,15 +825,15 @@ Disassembly of section .text:
   	for(int i=0;str[i]!='\0';i++)
  8000716:	2300      	movs	r3, #0
  8000718:	60fb      	str	r3, [r7, #12]
- 800071a:	e009      	b.n	8000730 <LCD_string+0x22>
+ 800071a:	e009      	b.n	8000730 <LCD_String+0x22>
   	{
-  		LCD_data(str[i]);
+  		LCD_Data(str[i]);
  800071c:	68fb      	ldr	r3, [r7, #12]
  800071e:	687a      	ldr	r2, [r7, #4]
  8000720:	4413      	add	r3, r2
  8000722:	781b      	ldrb	r3, [r3, #0]
  8000724:	4618      	mov	r0, r3
- 8000726:	f000 f8c3 	bl	80008b0 <LCD_data>
+ 8000726:	f000 f8c3 	bl	80008b0 <LCD_Data>
   	for(int i=0;str[i]!='\0';i++)
  800072a:	68fb      	ldr	r3, [r7, #12]
  800072c:	3301      	adds	r3, #1
@@ -843,7 +843,7 @@ Disassembly of section .text:
  8000734:	4413      	add	r3, r2
  8000736:	781b      	ldrb	r3, [r3, #0]
  8000738:	2b00      	cmp	r3, #0
- 800073a:	d1ef      	bne.n	800071c <LCD_string+0xe>
+ 800073a:	d1ef      	bne.n	800071c <LCD_String+0xe>
   	}
 
   }
@@ -853,103 +853,103 @@ Disassembly of section .text:
  8000742:	46bd      	mov	sp, r7
  8000744:	bd80      	pop	{r7, pc}
 
-08000746 <LCD_init>:
+08000746 <LCD_Init>:
   /* initialize GPIOA/C then initialize LCD controller */
-  void LCD_init(void)
+  void LCD_Init(void)
   {
  8000746:	b580      	push	{r7, lr}
  8000748:	af00      	add	r7, sp, #0
-  	PORTS_init();
- 800074a:	f000 f82d 	bl	80007a8 <PORTS_init>
+  	PORTS_Init();
+ 800074a:	f000 f82d 	bl	80007a8 <PORTS_Init>
   	delay(20); /* LCD controller reset sequence */
  800074e:	2014      	movs	r0, #20
  8000750:	f7ff ffa8 	bl	80006a4 <delay>
-  	LCD_nibble_write(0x30, 0);
+  	LCD_Nibble_write(0x30, 0);
  8000754:	2100      	movs	r1, #0
  8000756:	2030      	movs	r0, #48	; 0x30
- 8000758:	f000 f858 	bl	800080c <LCD_nibble_write>
+ 8000758:	f000 f858 	bl	800080c <LCD_Nibble_write>
   	delay(5);
  800075c:	2005      	movs	r0, #5
  800075e:	f7ff ffa1 	bl	80006a4 <delay>
-  	LCD_nibble_write(0x30, 0);
+  	LCD_Nibble_write(0x30, 0);
  8000762:	2100      	movs	r1, #0
  8000764:	2030      	movs	r0, #48	; 0x30
- 8000766:	f000 f851 	bl	800080c <LCD_nibble_write>
+ 8000766:	f000 f851 	bl	800080c <LCD_Nibble_write>
   	delay(1);
  800076a:	2001      	movs	r0, #1
  800076c:	f7ff ff9a 	bl	80006a4 <delay>
-  	LCD_nibble_write(0x30, 0);
+  	LCD_Nibble_write(0x30, 0);
  8000770:	2100      	movs	r1, #0
  8000772:	2030      	movs	r0, #48	; 0x30
- 8000774:	f000 f84a 	bl	800080c <LCD_nibble_write>
+ 8000774:	f000 f84a 	bl	800080c <LCD_Nibble_write>
   	delay(1);
  8000778:	2001      	movs	r0, #1
  800077a:	f7ff ff93 	bl	80006a4 <delay>
-  	LCD_nibble_write(0x20, 0); /* use 4-bit data mode */
+  	LCD_Nibble_write(0x20, 0); /* use 4-bit data mode */
  800077e:	2100      	movs	r1, #0
  8000780:	2020      	movs	r0, #32
- 8000782:	f000 f843 	bl	800080c <LCD_nibble_write>
+ 8000782:	f000 f843 	bl	800080c <LCD_Nibble_write>
   	delay(1);
  8000786:	2001      	movs	r0, #1
  8000788:	f7ff ff8c 	bl	80006a4 <delay>
-  	LCD_command(0x28); /* set 4-bit data, 2-line, 5x7 font */
+  	LCD_Command(0x28); /* set 4-bit data, 2-line, 5x7 font */
  800078c:	2028      	movs	r0, #40	; 0x28
- 800078e:	f000 f86d 	bl	800086c <LCD_command>
-  	LCD_command(0x06); /* move cursor right */
+ 800078e:	f000 f86d 	bl	800086c <LCD_Command>
+  	LCD_Command(0x06); /* move cursor right */
  8000792:	2006      	movs	r0, #6
- 8000794:	f000 f86a 	bl	800086c <LCD_command>
-  	LCD_command(0x01); /* clear screen, move cursor to home */
+ 8000794:	f000 f86a 	bl	800086c <LCD_Command>
+  	LCD_Command(0x01); /* clear screen, move cursor to home */
  8000798:	2001      	movs	r0, #1
- 800079a:	f000 f867 	bl	800086c <LCD_command>
-  	LCD_command(0x0F); /* turn on display, cursor blinking */
+ 800079a:	f000 f867 	bl	800086c <LCD_Command>
+  	LCD_Command(0x0F); /* turn on display, cursor blinking */
  800079e:	200f      	movs	r0, #15
- 80007a0:	f000 f864 	bl	800086c <LCD_command>
+ 80007a0:	f000 f864 	bl	800086c <LCD_Command>
   }
  80007a4:	bf00      	nop
  80007a6:	bd80      	pop	{r7, pc}
 
-080007a8 <PORTS_init>:
+080007a8 <PORTS_Init>:
 
-  void PORTS_init(void)
+  void PORTS_Init(void)
   {
  80007a8:	b480      	push	{r7}
  80007aa:	af00      	add	r7, sp, #0
   		RCC->AHB1ENR |= 0x1;                     // Enable AHB1 BUS which is connected to PA5 via GPIO port A
- 80007ac:	4b14      	ldr	r3, [pc, #80]	; (8000800 <PORTS_init+0x58>)
+ 80007ac:	4b14      	ldr	r3, [pc, #80]	; (8000800 <PORTS_Init+0x58>)
  80007ae:	6b1b      	ldr	r3, [r3, #48]	; 0x30
- 80007b0:	4a13      	ldr	r2, [pc, #76]	; (8000800 <PORTS_init+0x58>)
+ 80007b0:	4a13      	ldr	r2, [pc, #76]	; (8000800 <PORTS_Init+0x58>)
  80007b2:	f043 0301 	orr.w	r3, r3, #1
  80007b6:	6313      	str	r3, [r2, #48]	; 0x30
   		RCC->AHB1ENR |= 0x4;					// Enanle AHB1 bus conneted to GPIO port C
- 80007b8:	4b11      	ldr	r3, [pc, #68]	; (8000800 <PORTS_init+0x58>)
+ 80007b8:	4b11      	ldr	r3, [pc, #68]	; (8000800 <PORTS_Init+0x58>)
  80007ba:	6b1b      	ldr	r3, [r3, #48]	; 0x30
- 80007bc:	4a10      	ldr	r2, [pc, #64]	; (8000800 <PORTS_init+0x58>)
+ 80007bc:	4a10      	ldr	r2, [pc, #64]	; (8000800 <PORTS_Init+0x58>)
  80007be:	f043 0304 	orr.w	r3, r3, #4
  80007c2:	6313      	str	r3, [r2, #48]	; 0x30
   	//	RCC->AHB1ENR |=0x2;						//Enanle AHB1 bus conneted to GPIO port B
   		GPIOA->MODER &=~((3<<10) | (3<<14)); //0xCC00                //clear all pin PA5 PA6 PA7
- 80007c4:	4b0f      	ldr	r3, [pc, #60]	; (8000804 <PORTS_init+0x5c>)
+ 80007c4:	4b0f      	ldr	r3, [pc, #60]	; (8000804 <PORTS_Init+0x5c>)
  80007c6:	681b      	ldr	r3, [r3, #0]
- 80007c8:	4a0e      	ldr	r2, [pc, #56]	; (8000804 <PORTS_init+0x5c>)
+ 80007c8:	4a0e      	ldr	r2, [pc, #56]	; (8000804 <PORTS_Init+0x5c>)
  80007ca:	f423 434c 	bic.w	r3, r3, #52224	; 0xcc00
  80007ce:	6013      	str	r3, [r2, #0]
   		GPIOA->MODER |=0x4400; 				//set all pin 5,6,7 as o/p mode
- 80007d0:	4b0c      	ldr	r3, [pc, #48]	; (8000804 <PORTS_init+0x5c>)
+ 80007d0:	4b0c      	ldr	r3, [pc, #48]	; (8000804 <PORTS_Init+0x5c>)
  80007d2:	681b      	ldr	r3, [r3, #0]
- 80007d4:	4a0b      	ldr	r2, [pc, #44]	; (8000804 <PORTS_init+0x5c>)
+ 80007d4:	4a0b      	ldr	r2, [pc, #44]	; (8000804 <PORTS_Init+0x5c>)
  80007d6:	f443 4388 	orr.w	r3, r3, #17408	; 0x4400
  80007da:	6013      	str	r3, [r2, #0]
   	//	GPIOA->BSRR = 0xC00000;	//(3<<22)			//turn off EN and RW pin
   		GPIOC->MODER &=~0xFF00;				// CLEAR all pin 4-7 of port C
- 80007dc:	4b0a      	ldr	r3, [pc, #40]	; (8000808 <PORTS_init+0x60>)
+ 80007dc:	4b0a      	ldr	r3, [pc, #40]	; (8000808 <PORTS_Init+0x60>)
  80007de:	681b      	ldr	r3, [r3, #0]
- 80007e0:	4a09      	ldr	r2, [pc, #36]	; (8000808 <PORTS_init+0x60>)
+ 80007e0:	4a09      	ldr	r2, [pc, #36]	; (8000808 <PORTS_Init+0x60>)
  80007e2:	f423 437f 	bic.w	r3, r3, #65280	; 0xff00
  80007e6:	6013      	str	r3, [r2, #0]
   		GPIOC->MODER |= 0x5500;				// set all pin 4-7 as o/p mode
- 80007e8:	4b07      	ldr	r3, [pc, #28]	; (8000808 <PORTS_init+0x60>)
+ 80007e8:	4b07      	ldr	r3, [pc, #28]	; (8000808 <PORTS_Init+0x60>)
  80007ea:	681b      	ldr	r3, [r3, #0]
- 80007ec:	4a06      	ldr	r2, [pc, #24]	; (8000808 <PORTS_init+0x60>)
+ 80007ec:	4a06      	ldr	r2, [pc, #24]	; (8000808 <PORTS_Init+0x60>)
  80007ee:	f443 43aa 	orr.w	r3, r3, #21760	; 0x5500
  80007f2:	6013      	str	r3, [r2, #0]
 
@@ -964,9 +964,9 @@ Disassembly of section .text:
  8000804:	40020000 	.word	0x40020000
  8000808:	40020800 	.word	0x40020800
 
-0800080c <LCD_nibble_write>:
+0800080c <LCD_Nibble_write>:
 
-  void LCD_nibble_write(char data, unsigned char control)
+  void LCD_Nibble_write(char data, unsigned char control)
   {
  800080c:	b580      	push	{r7, lr}
  800080e:	b082      	sub	sp, #8
@@ -978,12 +978,12 @@ Disassembly of section .text:
  800081a:	71bb      	strb	r3, [r7, #6]
   	/*populate data bits */
   	GPIOC->BSRR = 0xF00000; 					/* reset the PC4-PC7 data bits */
- 800081c:	4b11      	ldr	r3, [pc, #68]	; (8000864 <LCD_nibble_write+0x58>)
+ 800081c:	4b11      	ldr	r3, [pc, #68]	; (8000864 <LCD_Nibble_write+0x58>)
  800081e:	f44f 0270 	mov.w	r2, #15728640	; 0xf00000
  8000822:	619a      	str	r2, [r3, #24]
   	GPIOC->BSRR = data & 0xF0; 					/* set data bits 4-7 */
  8000824:	79fb      	ldrb	r3, [r7, #7]
- 8000826:	4a0f      	ldr	r2, [pc, #60]	; (8000864 <LCD_nibble_write+0x58>)
+ 8000826:	4a0f      	ldr	r2, [pc, #60]	; (8000864 <LCD_Nibble_write+0x58>)
  8000828:	f003 03f0 	and.w	r3, r3, #240	; 0xf0
  800082c:	6193      	str	r3, [r2, #24]
   	/* set R/S bit */
@@ -991,27 +991,27 @@ Disassembly of section .text:
  800082e:	79bb      	ldrb	r3, [r7, #6]
  8000830:	f003 0320 	and.w	r3, r3, #32
  8000834:	2b00      	cmp	r3, #0
- 8000836:	d003      	beq.n	8000840 <LCD_nibble_write+0x34>
+ 8000836:	d003      	beq.n	8000840 <LCD_Nibble_write+0x34>
   		GPIOA->BSRR = RS;
- 8000838:	4b0b      	ldr	r3, [pc, #44]	; (8000868 <LCD_nibble_write+0x5c>)
+ 8000838:	4b0b      	ldr	r3, [pc, #44]	; (8000868 <LCD_Nibble_write+0x5c>)
  800083a:	2220      	movs	r2, #32
  800083c:	619a      	str	r2, [r3, #24]
- 800083e:	e003      	b.n	8000848 <LCD_nibble_write+0x3c>
+ 800083e:	e003      	b.n	8000848 <LCD_Nibble_write+0x3c>
   	else
   		GPIOA->BSRR = RS << 16;	//(1<<21)  //
- 8000840:	4b09      	ldr	r3, [pc, #36]	; (8000868 <LCD_nibble_write+0x5c>)
+ 8000840:	4b09      	ldr	r3, [pc, #36]	; (8000868 <LCD_Nibble_write+0x5c>)
  8000842:	f44f 1200 	mov.w	r2, #2097152	; 0x200000
  8000846:	619a      	str	r2, [r3, #24]
   	/* pulse E */
   	GPIOA->BSRR = EN;
- 8000848:	4b07      	ldr	r3, [pc, #28]	; (8000868 <LCD_nibble_write+0x5c>)
+ 8000848:	4b07      	ldr	r3, [pc, #28]	; (8000868 <LCD_Nibble_write+0x5c>)
  800084a:	2280      	movs	r2, #128	; 0x80
  800084c:	619a      	str	r2, [r3, #24]
   	delay(0);
  800084e:	2000      	movs	r0, #0
  8000850:	f7ff ff28 	bl	80006a4 <delay>
   	GPIOA->BSRR = EN << 16;
- 8000854:	4b04      	ldr	r3, [pc, #16]	; (8000868 <LCD_nibble_write+0x5c>)
+ 8000854:	4b04      	ldr	r3, [pc, #16]	; (8000868 <LCD_Nibble_write+0x5c>)
  8000856:	f44f 0200 	mov.w	r2, #8388608	; 0x800000
  800085a:	619a      	str	r2, [r3, #24]
   }
@@ -1022,32 +1022,32 @@ Disassembly of section .text:
  8000864:	40020800 	.word	0x40020800
  8000868:	40020000 	.word	0x40020000
 
-0800086c <LCD_command>:
-  void LCD_command(unsigned char command)
+0800086c <LCD_Command>:
+  void LCD_Command(unsigned char command)
   {
  800086c:	b580      	push	{r7, lr}
  800086e:	b082      	sub	sp, #8
  8000870:	af00      	add	r7, sp, #0
  8000872:	4603      	mov	r3, r0
  8000874:	71fb      	strb	r3, [r7, #7]
-  	LCD_nibble_write(command & 0xF0, 0); 			/* upper nibble first */
+  	LCD_Nibble_write(command & 0xF0, 0); 			/* upper nibble first */
  8000876:	79fb      	ldrb	r3, [r7, #7]
  8000878:	f023 030f 	bic.w	r3, r3, #15
  800087c:	b2db      	uxtb	r3, r3
  800087e:	2100      	movs	r1, #0
  8000880:	4618      	mov	r0, r3
- 8000882:	f7ff ffc3 	bl	800080c <LCD_nibble_write>
-  	LCD_nibble_write(command << 4, 0); 				/* then lower nibble */
+ 8000882:	f7ff ffc3 	bl	800080c <LCD_Nibble_write>
+  	LCD_Nibble_write(command << 4, 0); 				/* then lower nibble */
  8000886:	79fb      	ldrb	r3, [r7, #7]
  8000888:	011b      	lsls	r3, r3, #4
  800088a:	b2db      	uxtb	r3, r3
  800088c:	2100      	movs	r1, #0
  800088e:	4618      	mov	r0, r3
- 8000890:	f7ff ffbc 	bl	800080c <LCD_nibble_write>
+ 8000890:	f7ff ffbc 	bl	800080c <LCD_Nibble_write>
   	if (command < 4)
  8000894:	79fb      	ldrb	r3, [r7, #7]
  8000896:	2b03      	cmp	r3, #3
- 8000898:	d803      	bhi.n	80008a2 <LCD_command+0x36>
+ 8000898:	d803      	bhi.n	80008a2 <LCD_Command+0x36>
   		delay(2); 									/* command 1 and 2 needs up to 1.64ms */
  800089a:	2002      	movs	r0, #2
  800089c:	f7ff ff02 	bl	80006a4 <delay>
@@ -1055,7 +1055,7 @@ Disassembly of section .text:
   		delay(1); 									/* all others 40 us */
 
   }
- 80008a0:	e002      	b.n	80008a8 <LCD_command+0x3c>
+ 80008a0:	e002      	b.n	80008a8 <LCD_Command+0x3c>
   		delay(1); 									/* all others 40 us */
  80008a2:	2001      	movs	r0, #1
  80008a4:	f7ff fefe 	bl	80006a4 <delay>
@@ -1065,28 +1065,28 @@ Disassembly of section .text:
  80008ac:	46bd      	mov	sp, r7
  80008ae:	bd80      	pop	{r7, pc}
 
-080008b0 <LCD_data>:
-  void LCD_data(char data)
+080008b0 <LCD_Data>:
+  void LCD_Data(char data)
   {
  80008b0:	b580      	push	{r7, lr}
  80008b2:	b082      	sub	sp, #8
  80008b4:	af00      	add	r7, sp, #0
  80008b6:	4603      	mov	r3, r0
  80008b8:	71fb      	strb	r3, [r7, #7]
-  	LCD_nibble_write(data & 0xF0, RS); 				/* upper nibble first */
+  	LCD_Nibble_write(data & 0xF0, RS); 				/* upper nibble first */
  80008ba:	79fb      	ldrb	r3, [r7, #7]
  80008bc:	f023 030f 	bic.w	r3, r3, #15
  80008c0:	b2db      	uxtb	r3, r3
  80008c2:	2120      	movs	r1, #32
  80008c4:	4618      	mov	r0, r3
- 80008c6:	f7ff ffa1 	bl	800080c <LCD_nibble_write>
-  	LCD_nibble_write(data << 4, RS); 				/* then lower nibble */
+ 80008c6:	f7ff ffa1 	bl	800080c <LCD_Nibble_write>
+  	LCD_Nibble_write(data << 4, RS); 				/* then lower nibble */
  80008ca:	79fb      	ldrb	r3, [r7, #7]
  80008cc:	011b      	lsls	r3, r3, #4
  80008ce:	b2db      	uxtb	r3, r3
  80008d0:	2120      	movs	r1, #32
  80008d2:	4618      	mov	r0, r3
- 80008d4:	f7ff ff9a 	bl	800080c <LCD_nibble_write>
+ 80008d4:	f7ff ff9a 	bl	800080c <LCD_Nibble_write>
   	delay(100);
  80008d8:	2064      	movs	r0, #100	; 0x64
  80008da:	f7ff fee3 	bl	80006a4 <delay>

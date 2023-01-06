@@ -1,0 +1,10 @@
+14:26:11 **** Incremental Build of configuration Debug for project RFID_USART2_LCD_RTC ****
+make -j12 all 
+arm-none-eabi-size   RFID_USART2_LCD_RTC.elf 
+   text	   data	    bss	    dec	    hex	filename
+  15544	     24	   1824	  17392	   43f0	RFID_USART2_LCD_RTC.elf
+Finished building: default.size.stdout
+ 
+
+14:26:11 Build Finished. 0 errors, 0 warnings. (took 201ms)
+

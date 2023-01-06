@@ -5,39 +5,50 @@
 		<item key="DIALOG_Y_ORIGIN" value="396"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value=""/>
+		<item key="selection" value="MOTOR_Init"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="HAL_SPI_Transmit"/>
-			<item value="Dutycycle"/>
-			<item value="DutyCycle"/>
-			<item value="Duty"/>
-			<item value="TIM10"/>
-			<item value="htim10"/>
-			<item value="huart2"/>
-			<item value="USART2"/>
-			<item value="&amp;huart2"/>
-			<item value="&amp;USART2_Handler"/>
-			<item value="&amp;USART_Handler"/>
-			<item value="EXTI15_10_IRQHandler"/>
+			<item value="MOTOR_Init"/>
+			<item value="Data_Bufferfer"/>
+			<item value="data_buf"/>
+			<item value="Rcvd_Data"/>
+			<item value="USART"/>
+			<item value="HAL_I2C_Slave_Receive_IT"/>
+			<item value="CPLT"/>
+			<item value="buffer"/>
+			<item value="timeDateReadback"/>
+			<item value="Get_Time()"/>
+			<item value="time.hour"/>
+			<item value="delay"/>
+			<item value="Delay"/>
+			<item value="LCD_string"/>
+			<item value="PORTS_init"/>
 		</list>
 		<list key="replacehistory">
+			<item value="MOTOR_Init"/>
+			<item value="Data_Buffer"/>
+			<item value="data_buf"/>
+			<item value="recvd_data"/>
+			<item value=""/>
+			<item value="Delay"/>
+			<item value="LCD_String"/>
+			<item value="PORTS_Init"/>
+			<item value="LCD_Data"/>
+			<item value="LCD_Command"/>
+			<item value="LCD_Nibble_write"/>
 			<item value="TIM11"/>
 			<item value="htim11"/>
 			<item value="huart1"/>
 			<item value="USART1"/>
-			<item value="&amp;huart1"/>
-			<item value="&amp;huart2"/>
-			<item value="EXTISankalp"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="807"/>
-		<item key="DIALOG_Y_ORIGIN" value="268"/>
+		<item key="DIALOG_X_ORIGIN" value="40"/>
+		<item key="DIALOG_Y_ORIGIN" value="258"/>
 		<item key="DIALOG_WIDTH" value="322"/>
 		<item key="DIALOG_HEIGHT" value="391"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>

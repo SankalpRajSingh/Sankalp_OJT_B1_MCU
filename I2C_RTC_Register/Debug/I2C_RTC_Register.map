@@ -2724,24 +2724,24 @@ LOAD c:/st/stm32cubeide_1.10.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.ext
  .text.BCDtoDecimal
                 0x00000000080006e4       0x2a ./Core/Src/main.o
                 0x00000000080006e4                BCDtoDecimal
- .text.LCD_string
+ .text.LCD_String
                 0x000000000800070e       0x38 ./Core/Src/main.o
-                0x000000000800070e                LCD_string
- .text.LCD_init
+                0x000000000800070e                LCD_String
+ .text.LCD_Init
                 0x0000000008000746       0x62 ./Core/Src/main.o
-                0x0000000008000746                LCD_init
- .text.PORTS_init
+                0x0000000008000746                LCD_Init
+ .text.PORTS_Init
                 0x00000000080007a8       0x64 ./Core/Src/main.o
-                0x00000000080007a8                PORTS_init
- .text.LCD_nibble_write
+                0x00000000080007a8                PORTS_Init
+ .text.LCD_Nibble_write
                 0x000000000800080c       0x60 ./Core/Src/main.o
-                0x000000000800080c                LCD_nibble_write
- .text.LCD_command
+                0x000000000800080c                LCD_Nibble_write
+ .text.LCD_Command
                 0x000000000800086c       0x44 ./Core/Src/main.o
-                0x000000000800086c                LCD_command
- .text.LCD_data
+                0x000000000800086c                LCD_Command
+ .text.LCD_Data
                 0x00000000080008b0       0x36 ./Core/Src/main.o
-                0x00000000080008b0                LCD_data
+                0x00000000080008b0                LCD_Data
  .text.NMI_Handler
                 0x00000000080008e6        0x6 ./Core/Src/stm32f4xx_it.o
                 0x00000000080008e6                NMI_Handler
@@ -3234,18 +3234,18 @@ LOAD c:/st/stm32cubeide_1.10.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_line    0x00000000000020a4       0x88 ./Core/Startup/startup_stm32f411retx.o
  .debug_line    0x000000000000212c      0x98b ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
 
-.debug_str      0x0000000000000000    0x84338
- .debug_str     0x0000000000000000    0x83264 ./Core/Src/main.o
+.debug_str      0x0000000000000000    0x84340
+ .debug_str     0x0000000000000000    0x8326c ./Core/Src/main.o
                                       0x83506 (size before relaxing)
- .debug_str     0x0000000000083264       0xd3 ./Core/Src/stm32f4xx_it.o
+ .debug_str     0x000000000008326c       0xd3 ./Core/Src/stm32f4xx_it.o
                                       0x7f588 (size before relaxing)
- .debug_str     0x0000000000083337      0x4da ./Core/Src/sysmem.o
+ .debug_str     0x000000000008333f      0x4da ./Core/Src/sysmem.o
                                        0x5dc0 (size before relaxing)
- .debug_str     0x0000000000083811       0xdb ./Core/Src/system_stm32f4xx.o
+ .debug_str     0x0000000000083819       0xdb ./Core/Src/system_stm32f4xx.o
                                       0x7f6c4 (size before relaxing)
- .debug_str     0x00000000000838ec       0x36 ./Core/Startup/startup_stm32f411retx.o
+ .debug_str     0x00000000000838f4       0x36 ./Core/Startup/startup_stm32f411retx.o
                                          0x82 (size before relaxing)
- .debug_str     0x0000000000083922      0xa16 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
+ .debug_str     0x000000000008392a      0xa16 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
                                       0x800f0 (size before relaxing)
 
 .comment        0x0000000000000000       0x50

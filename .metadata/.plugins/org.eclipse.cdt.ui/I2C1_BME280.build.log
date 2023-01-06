@@ -1,10 +1,10 @@
-16:57:22 **** Incremental Build of configuration Debug for project I2C1_BME280 ****
+17:38:05 **** Incremental Build of configuration Debug for project I2C1_BME280 ****
 make -j12 all 
 arm-none-eabi-size   I2C1_BME280.elf 
    text	   data	    bss	    dec	    hex	filename
-   9844	     20	   1660	  11524	   2d04	I2C1_BME280.elf
+  13468	     20	   1724	  15212	   3b6c	I2C1_BME280.elf
 Finished building: default.size.stdout
  
 
-16:57:23 Build Finished. 0 errors, 0 warnings. (took 201ms)
+17:38:05 Build Finished. 0 errors, 0 warnings. (took 157ms)
 

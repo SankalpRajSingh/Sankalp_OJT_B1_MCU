@@ -100,11 +100,11 @@ int main(void)
   	  if(HAL_ADC_PollForConversion(&hadc1, 10) == 0)
   	  {
   		  adc_value = HAL_ADC_GetValue(&hadc1);
-  		  if(adc_value >= 4095)
+  		  if(adc_value >= 3000)
   		  {
   			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 1);
   		  }
-  		  else if(adc_value < 4095)
+  		  else if(adc_value < 3000)
   		  {
   			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 0);
   		  }

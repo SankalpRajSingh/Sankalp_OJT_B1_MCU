@@ -1,0 +1,40 @@
+16:54:07 **** Incremental Build of configuration Debug for project RFID_ACCESS_CONTROL_SYSTEM ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:137:14: warning: unused variable 'len_of_data' [-Wunused-variable]
+  137 |     uint16_t len_of_data=strlen(USER_DATA);
+      |              ^~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:156:14: warning: pointer targets in passing argument 2 of 'strcpy' differ in signedness [-Wpointer-sign]
+  156 |   strcpy(str,data_buf);
+      |              ^~~~~~~~
+      |              |
+      |              uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:23:
+c:\st\stm32cubeide_1.10.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.0.202111181127\tools\arm-none-eabi\include\string.h:38:34: note: expected 'const char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   38 | char  *strcpy (char *__restrict, const char *__restrict);
+      |                                  ^
+../Core/Src/main.c:180:4: warning: null argument where non-null required (argument 2) [-Wnonnull]
+  180 |    strcpy(str,0);
+      |    ^~~~~~
+../Core/Src/main.c:207:4: warning: null argument where non-null required (argument 2) [-Wnonnull]
+  207 |    strcpy(str,0);
+      |    ^~~~~~
+../Core/Src/main.c:234:4: warning: null argument where non-null required (argument 2) [-Wnonnull]
+  234 |    strcpy(str,0);
+      |    ^~~~~~
+arm-none-eabi-gcc -o "RFID_ACCESS_CONTROL_SYSTEM.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\PHY202209EF07\STM32CubeIDE\workspace_1.10.1\RFID_ACCESS_CONTROL_SYSTEM\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RFID_ACCESS_CONTROL_SYSTEM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: RFID_ACCESS_CONTROL_SYSTEM.elf
+ 
+arm-none-eabi-size   RFID_ACCESS_CONTROL_SYSTEM.elf 
+arm-none-eabi-objdump -h -S  RFID_ACCESS_CONTROL_SYSTEM.elf  > "RFID_ACCESS_CONTROL_SYSTEM.list"
+   text	   data	    bss	    dec	    hex	filename
+  17736	    124	   1908	  19768	   4d38	RFID_ACCESS_CONTROL_SYSTEM.elf
+Finished building: default.size.stdout
+ 
+Finished building: RFID_ACCESS_CONTROL_SYSTEM.list
+ 
+
+16:54:08 Build Finished. 0 errors, 5 warnings. (took 900ms)
+

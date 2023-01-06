@@ -5,9 +5,9 @@
 ../Core/Src/main.c:188:8:Get_Time	8	static
 ../Core/Src/main.c:202:8:delay	24	static
 ../Core/Src/main.c:210:7:BCDtoDecimal	16	static
-../Core/Src/main.c:217:8:LCD_string	24	static
-../Core/Src/main.c:226:8:LCD_init	8	static
-../Core/Src/main.c:244:8:PORTS_init	4	static
-../Core/Src/main.c:258:8:LCD_nibble_write	16	static
-../Core/Src/main.c:273:8:LCD_command	16	static
-../Core/Src/main.c:283:8:LCD_data	16	static
+../Core/Src/main.c:217:8:LCD_String	24	static
+../Core/Src/main.c:226:8:LCD_Init	8	static
+../Core/Src/main.c:244:8:PORTS_Init	4	static
+../Core/Src/main.c:258:8:LCD_Nibble_write	16	static
+../Core/Src/main.c:273:8:LCD_Command	16	static
+../Core/Src/main.c:283:8:LCD_Data	16	static

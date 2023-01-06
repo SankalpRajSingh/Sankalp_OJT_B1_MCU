@@ -255,6 +255,7 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
+#include "string.h"
 #include "stm32f4xx_hal.h"
 
 /** @addtogroup STM32F4xx_HAL_Driver
@@ -1357,9 +1358,11 @@ HAL_StatusTypeDef HAL_UART_Transmit_IT(UART_HandleTypeDef *huart, const uint8_t 
   * @param  Size  Amount of data elements (u8 or u16) to be received.
   * @retval HAL status
   */
+#define TRUE 1
+#define FALSE 0
 HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size)
 {
-  /* Check that a Rx process is not already ongoing */
+	/* Check that a Rx process is not already ongoing */
   if (huart->RxState == HAL_UART_STATE_READY)
   {
     if ((pData == NULL) || (Size == 0U))
@@ -1372,7 +1375,6 @@ HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData,
 
     /* Set Reception type to Standard reception */
     huart->ReceptionType = HAL_UART_RECEPTION_STANDARD;
-
     return (UART_Start_Receive_IT(huart, pData, Size));
   }
   else

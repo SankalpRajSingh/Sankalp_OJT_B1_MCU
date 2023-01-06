@@ -97,8 +97,8 @@ int main(void)
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
 
-  write_to_MAX7219(0x0c, 0x01);
-  write_to_MAX7219(0x09, 0x00);
+  write_to_MAX7219(0x0c, 0x01);        //(Shut Down Mode, Normal Mode)
+  write_to_MAX7219(0x09, 0x00);        //()
   write_to_MAX7219(0x0A, 0x01);
   write_to_MAX7219(0x0B, 0x07);
 
@@ -198,6 +198,15 @@ int main(void)
 	  write_to_MAX7219(0x06, 0x22);
 	  write_to_MAX7219(0x07, 0x3E);
 	  write_to_MAX7219(0x08, 0x00);
+	  HAL_Delay(1000);
+	  write_to_MAX7219(0x01, 0x0E);
+	  write_to_MAX7219(0x02, 0x1F);
+	  write_to_MAX7219(0x03, 0x3F);
+	  write_to_MAX7219(0x04, 0x7E);
+	  write_to_MAX7219(0x05, 0x7E);
+	  write_to_MAX7219(0x06, 0x3F);
+	  write_to_MAX7219(0x07, 0x1F);
+	  write_to_MAX7219(0x08, 0x0E);
 	  HAL_Delay(1000);
 
     /* USER CODE BEGIN 3 */

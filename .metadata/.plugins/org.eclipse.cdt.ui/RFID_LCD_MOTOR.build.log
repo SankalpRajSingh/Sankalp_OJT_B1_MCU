@@ -1,10 +1,10 @@
-12:43:56 **** Incremental Build of configuration Debug for project RFID_LCD_MOTOR ****
+16:52:52 **** Incremental Build of configuration Debug for project RFID_LCD_MOTOR ****
 make -j12 all 
 arm-none-eabi-size   RFID_LCD_MOTOR.elf 
    text	   data	    bss	    dec	    hex	filename
-  11968	     24	   1696	  13688	   3578	RFID_LCD_MOTOR.elf
+  11708	     24	   1696	  13428	   3474	RFID_LCD_MOTOR.elf
 Finished building: default.size.stdout
  
 
-12:43:57 Build Finished. 0 errors, 0 warnings. (took 201ms)
+16:52:52 Build Finished. 0 errors, 0 warnings. (took 157ms)
 

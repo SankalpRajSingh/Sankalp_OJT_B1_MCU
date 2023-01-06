@@ -31,12 +31,12 @@ char timeDateReadback[15];
 #define RS 0x20							//PA5 mask for Register select
 //R/W CONNECT TO GROUND
 #define EN 0x80							//PA7 mask for register select
-void LCD_nibble_write(char data, unsigned char control);
-void LCD_command(unsigned char command);
-void LCD_data(char data);
-void LCD_init(void);
-void PORTS_init(void);
-void LCD_string(char []);
+void LCD_Nibble_write(char data, unsigned char control);
+void LCD_Command(unsigned char command);
+void LCD_Data(char data);
+void LCD_Init(void);
+void PORTS_Init(void);
+void LCD_String(char []);
   //---------------------------------
   void Get_Time();
 
@@ -58,34 +58,34 @@ void LCD_string(char []);
    {
 
        I2C1_init();
-       LCD_init();
+       LCD_Init();
        delay(10);
 
-   //    LCD_data('m');
-       LCD_string("TIME:");
-       LCD_command(0xC0);
-       LCD_string("DATE:");
+   //    LCD_Data('m');
+       LCD_String("TIME:");
+       LCD_Command(0xC0);
+       LCD_String("DATE:");
        I2C1_burstWrite(SLAVE_ADDR, 0x00, 7, timeDateToSet);
 
        while (1)
        {
-       	LCD_command(0x86);
+       	LCD_Command(0x86);
 
        	Get_Time();		//reading RTC data
 
        	sprintf (buffer, "%02d:%02d:%02d", time.hour, time.minutes, time.seconds);
        	delay(1);
-       	LCD_string(buffer);
+       	LCD_String(buffer);
        	delay(1);
 
        	sprintf (buffer, "%02d-%02d-20%02d", time.dayofmonth, time.month, time.year);
        	delay(1);
-       	LCD_command(0xC6);
-       	LCD_string(buffer);
+       	LCD_Command(0xC6);
+       	LCD_String(buffer);
        	//delay(1);
-       	//LCD_command(0x08);				//turn off the screen
+       	//LCD_Command(0x08);				//turn off the screen
        	//delay(200);
-       	LCD_command(0x0C);				//turn on the screen and cursor off
+       	LCD_Command(0x0C);				//turn on the screen and cursor off
 
        }
 
@@ -214,34 +214,34 @@ void LCD_string(char []);
 
 
 
-  void LCD_string(char str[])
+  void LCD_String(char str[])
   {
   	for(int i=0;str[i]!='\0';i++)
   	{
-  		LCD_data(str[i]);
+  		LCD_Data(str[i]);
   	}
 
   }
   /* initialize GPIOA/C then initialize LCD controller */
-  void LCD_init(void)
+  void LCD_Init(void)
   {
-  	PORTS_init();
+  	PORTS_Init();
   	delay(20); /* LCD controller reset sequence */
-  	LCD_nibble_write(0x30, 0);
+  	LCD_Nibble_write(0x30, 0);
   	delay(5);
-  	LCD_nibble_write(0x30, 0);
+  	LCD_Nibble_write(0x30, 0);
   	delay(1);
-  	LCD_nibble_write(0x30, 0);
+  	LCD_Nibble_write(0x30, 0);
   	delay(1);
-  	LCD_nibble_write(0x20, 0); /* use 4-bit data mode */
+  	LCD_Nibble_write(0x20, 0); /* use 4-bit data mode */
   	delay(1);
-  	LCD_command(0x28); /* set 4-bit data, 2-line, 5x7 font */
-  	LCD_command(0x06); /* move cursor right */
-  	LCD_command(0x01); /* clear screen, move cursor to home */
-  	LCD_command(0x0F); /* turn on display, cursor blinking */
+  	LCD_Command(0x28); /* set 4-bit data, 2-line, 5x7 font */
+  	LCD_Command(0x06); /* move cursor right */
+  	LCD_Command(0x01); /* clear screen, move cursor to home */
+  	LCD_Command(0x0F); /* turn on display, cursor blinking */
   }
 
-  void PORTS_init(void)
+  void PORTS_Init(void)
   {
   		RCC->AHB1ENR |= 0x1;                     // Enable AHB1 BUS which is connected to PA5 via GPIO port A
   		RCC->AHB1ENR |= 0x4;					// Enanle AHB1 bus conneted to GPIO port C
@@ -255,7 +255,7 @@ void LCD_string(char []);
 
   }
 
-  void LCD_nibble_write(char data, unsigned char control)
+  void LCD_Nibble_write(char data, unsigned char control)
   {
   	/*populate data bits */
   	GPIOC->BSRR = 0xF00000; 					/* reset the PC4-PC7 data bits */
@@ -270,19 +270,19 @@ void LCD_string(char []);
   	delay(0);
   	GPIOA->BSRR = EN << 16;
   }
-  void LCD_command(unsigned char command)
+  void LCD_Command(unsigned char command)
   {
-  	LCD_nibble_write(command & 0xF0, 0); 			/* upper nibble first */
-  	LCD_nibble_write(command << 4, 0); 				/* then lower nibble */
+  	LCD_Nibble_write(command & 0xF0, 0); 			/* upper nibble first */
+  	LCD_Nibble_write(command << 4, 0); 				/* then lower nibble */
   	if (command < 4)
   		delay(2); 									/* command 1 and 2 needs up to 1.64ms */
   	else
   		delay(1); 									/* all others 40 us */
 
   }
-  void LCD_data(char data)
+  void LCD_Data(char data)
   {
-  	LCD_nibble_write(data & 0xF0, RS); 				/* upper nibble first */
-  	LCD_nibble_write(data << 4, RS); 				/* then lower nibble */
+  	LCD_Nibble_write(data & 0xF0, RS); 				/* upper nibble first */
+  	LCD_Nibble_write(data << 4, RS); 				/* then lower nibble */
   	delay(100);
   }

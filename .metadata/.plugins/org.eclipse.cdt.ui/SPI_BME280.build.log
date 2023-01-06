@@ -1,0 +1,10 @@
+15:42:11 **** Incremental Build of configuration Debug for project SPI_BME280 ****
+make -j12 all 
+arm-none-eabi-size   SPI_BME280.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9020	     20	   1668	  10708	   29d4	SPI_BME280.elf
+Finished building: default.size.stdout
+ 
+
+15:42:11 Build Finished. 0 errors, 0 warnings. (took 168ms)
+

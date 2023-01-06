@@ -1,0 +1,61 @@
+08:46:41 **** Incremental Build of configuration Debug for project REAL_TIME_ACESS_CONTROL_SYSTEM ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'Rfid_Init':
+../Core/Src/main.c:136:12: warning: 'return' with a value, in function returning void [-Wreturn-type]
+  136 |     return 0;
+      |            ^
+../Core/Src/main.c:125:6: note: declared here
+  125 | void Rfid_Init()
+      |      ^~~~~~~~~
+../Core/Src/main.c: In function 'MOTOR_Init':
+../Core/Src/main.c:184:13: warning: pointer targets in passing argument 1 of 'LCD_string' differ in signedness [-Wpointer-sign]
+  184 |  LCD_string(data_buf);
+      |             ^~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:23:
+../Core/Inc/lcd.h:45:22: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   45 | void LCD_string(char str[])
+      |                 ~~~~~^~~~~
+../Core/Src/main.c:186:9: warning: pointer targets in passing argument 1 of 'strcpy' differ in signedness [-Wpointer-sign]
+  186 |  strcpy(data_buf,'_');
+      |         ^~~~~~~~
+      |         |
+      |         uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:22:
+c:\st\stm32cubeide_1.10.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.0.202111181127\tools\arm-none-eabi\include\string.h:38:16: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   38 | char  *strcpy (char *__restrict, const char *__restrict);
+      |                ^
+../Core/Src/main.c:186:18: warning: passing argument 2 of 'strcpy' makes pointer from integer without a cast [-Wint-conversion]
+  186 |  strcpy(data_buf,'_');
+      |                  ^~~
+      |                  |
+      |                  int
+In file included from ../Core/Src/main.c:22:
+c:\st\stm32cubeide_1.10.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.0.202111181127\tools\arm-none-eabi\include\string.h:38:34: note: expected 'const char * restrict' but argument is of type 'int'
+   38 | char  *strcpy (char *__restrict, const char *__restrict);
+      |                                  ^
+../Core/Src/main.c:187:13: warning: pointer targets in passing argument 1 of 'LCD_string' differ in signedness [-Wpointer-sign]
+  187 |  LCD_string(data_buf);
+      |             ^~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:23:
+../Core/Inc/lcd.h:45:22: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   45 | void LCD_string(char str[])
+      |                 ~~~~~^~~~~
+arm-none-eabi-gcc -o "REAL_TIME_ACESS_CONTROL_SYSTEM.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\PHY202209EF07\STM32CubeIDE\workspace_1.10.1\REAL_TIME_ACESS_CONTROL_SYSTEM\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="REAL_TIME_ACESS_CONTROL_SYSTEM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: REAL_TIME_ACESS_CONTROL_SYSTEM.elf
+ 
+arm-none-eabi-size   REAL_TIME_ACESS_CONTROL_SYSTEM.elf 
+arm-none-eabi-objdump -h -S  REAL_TIME_ACESS_CONTROL_SYSTEM.elf  > "REAL_TIME_ACESS_CONTROL_SYSTEM.list"
+   text	   data	    bss	    dec	    hex	filename
+  15372	     24	   1808	  17204	   4334	REAL_TIME_ACESS_CONTROL_SYSTEM.elf
+Finished building: default.size.stdout
+ 
+Finished building: REAL_TIME_ACESS_CONTROL_SYSTEM.list
+ 
+
+08:46:41 Build Finished. 0 errors, 5 warnings. (took 569ms)
+

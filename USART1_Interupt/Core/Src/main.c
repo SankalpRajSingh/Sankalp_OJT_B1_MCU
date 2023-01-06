@@ -105,6 +105,7 @@ int main(void)
    while(rec_comp_data != TRUE)
    {
  	  HAL_UART_Receive_IT(&huart1,&recvd_data,1);
+ 	 data_buf[count++]=recvd_data;
    }
    while(1);
    return 0;

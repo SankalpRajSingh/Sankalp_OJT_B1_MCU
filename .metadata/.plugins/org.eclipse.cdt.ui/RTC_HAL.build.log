@@ -1,0 +1,10 @@
+16:15:41 **** Incremental Build of configuration Debug for project RTC_HAL ****
+make -j12 all 
+arm-none-eabi-size   RTC_HAL.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13016	    120	   1760	  14896	   3a30	RTC_HAL.elf
+Finished building: default.size.stdout
+ 
+
+16:15:42 Build Finished. 0 errors, 0 warnings. (took 157ms)
+

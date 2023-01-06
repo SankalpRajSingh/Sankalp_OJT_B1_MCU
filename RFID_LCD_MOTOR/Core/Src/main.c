@@ -18,9 +18,8 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include<string.h>
 #include"lcd.h"
-
+#include"string.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -44,7 +43,6 @@
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -58,123 +56,129 @@ static void MX_USART1_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
-/* USER CODE END 0 */
 char *USER_DATA="Sankalp!";
 uint8_t recvd_data;
 	uint8_t data_buf[50];
 	uint8_t count=0;
 	uint8_t rec_comp_data=FALSE;
-	char str[20];
+
+/* USER CODE END 0 */
 
 /**
   * @brief  The application entry point.
   * @retval int
   */
-int main(void)
-{
-  /* USER CODE BEGIN 1 */
-
-  /* USER CODE END 1 */
-
-  /* MCU Configuration--------------------------------------------------------*/
-
-  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
-  LCD_init();
-  /* USER CODE BEGIN Init */
-
-  /* USER CODE END Init */
-
-  /* Configure the system clock */
-  SystemClock_Config();
-
-  /* USER CODE BEGIN SysInit */
-
-  /* USER CODE END SysInit */
-
-  /* Initialize all configured peripherals */
-  MX_GPIO_Init();
-  MX_USART1_UART_Init();
-  /* USER CODE BEGIN 2 */
-
-  /* USER CODE END 2 */
-  uint16_t len_of_data=strlen(USER_DATA);
-   HAL_UART_Transmit(&huart1, (uint8_t*)USER_DATA,len_of_data, HAL_MAX_DELAY);
-   while(rec_comp_data != TRUE)
-   {
- 	  HAL_UART_Receive_IT(&huart1,&recvd_data,1);
-   }
-   while(1);
-   return 0;
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
-//  while (1)
-//  {
-//    /* USER CODE END WHILE */
-//
-//    /* USER CODE BEGIN 3 */
-//  }
-  /* USER CODE END 3 */
-}
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
-{
-	data_buf[count++]=recvd_data;
-	if(strcmp(data_buf,"18")==0)
+	int main(void)
 	{
-		LCD_string("WELCOME ON BOARD");
-		LCD_command(0xC4);
-		LCD_string("SANKALP!");
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, 1);        //For Gate Open
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, 0);
-		delay(3000);
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, 0);        //Stop
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, 0);
-		delay(2000);
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, 0);        //For Gate Close
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, 1);
-		delay(3000);
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, 0);        //Stop
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, 0);
+	  /* USER CODE BEGIN 1 */
+
+	  /* USER CODE END 1 */
+
+	  /* MCU Configuration--------------------------------------------------------*/
+
+	  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+	  HAL_Init();
+	  LCD_init();
+	  /* USER CODE BEGIN Init */
+
+	  /* USER CODE END Init */
+
+	  /* Configure the system clock */
+	  SystemClock_Config();
+
+	  /* USER CODE BEGIN SysInit */
+
+	  /* USER CODE END SysInit */
+
+	  /* Initialize all configured peripherals */
+	  MX_GPIO_Init();
+	  MX_USART1_UART_Init();
+	  /* USER CODE BEGIN 2 */
+
+	  /* USER CODE END 2 */
+	  uint16_t len_of_data=strlen(USER_DATA);
+	   HAL_UART_Transmit(&huart1, (uint8_t*)USER_DATA,len_of_data, HAL_MAX_DELAY);
+	   while(rec_comp_data != TRUE)
+	   {
+	 	  HAL_UART_Receive_IT(&huart1,&recvd_data,1);
+	   }
+	   return 0;
 	}
-	else if(strcmp(data_buf,"3E")==0)
+	void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 	{
-		LCD_string("WELCOME ON BOARD");
-		LCD_command(0xC4);
-		LCD_string("NARESH!");
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, 1);       //For Gate Open
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, 0);
-		delay(3000);
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, 0);        //Stop
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, 0);
-		delay(2000);
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, 0);       //For Gate Close
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, 1);
-		delay(3000);
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, 0);        //Stop
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, 0);
+		data_buf[count++]=recvd_data;
+		if(strcmp(data_buf,"18")==0)
+		{
+			LCD_string(data_buf);
+			LCD_string("WELCOME ON BOARD");
+			LCD_command(0xC4);
+			LCD_string("SANKALP!");
+	//		delay(1000);
+	//		count=0;
+	//		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, 1);       //For Gate Open
+	//		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, 0);
+	//		delay(5000);
+	//		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, 0);        //Stop
+	//		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, 0);
+	//		delay(2000);
+	//		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, 0);       //For Gate Close
+	//		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, 1);
+	//		delay(5000);
+	//		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, 0);        //Stop
+	//		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, 0);
+	//		delay(100);
+			LCD_command(1);
+			  HAL_Init();
+			  LCD_init();
+		}
+		else if(strcmp(data_buf,"3E")==0)
+		{
+			LCD_string("WELCOME ON BOARD");
+			LCD_command(0xC4);
+			LCD_string("NARESH!");
+	//		delay(1000);
+	//		count=0;
+	//		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, 1);       //For Gate Open
+	//		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, 0);
+	//		delay(5000);
+	//		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, 0);        //Stop
+	//		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, 0);
+	//		delay(2000);
+	//		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, 0);       //For Gate Close
+	//		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, 1);
+	//		delay(5000);
+	//		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, 0);        //Stop
+	//		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, 0);
+	//		delay(100);
+			LCD_command(1);
+			  HAL_Init();
+			  LCD_init();
+		}
+		else if(strcmp(data_buf,"55")==0)
+		{
+			LCD_string("WELCOME ON BOARD");
+			LCD_command(0xC4);
+			LCD_string("SANDEEP!");
+	//		delay(1000);
+	//		count=0;
+	//		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, 1);       //For Gate Open
+	//		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, 0);
+	//		delay(5000);
+	//		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, 0);        //Stop
+	//		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, 0);
+	//		delay(2000);
+	//		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, 0);       //For Gate Close
+	//		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, 1);
+	//		delay(5000);
+	//		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, 0);        //Stop
+	//		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, 0);
+	//		delay(100);
+			LCD_command(1);
+			  HAL_Init();
+			  LCD_init();
+		}
+
 	}
-	else if(strcmp(data_buf,"55")==0)
-	{
-		LCD_string("WELCOME ON BOARD");
-		LCD_command(0xC4);
-		LCD_string("SANDEEP!");
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, 1);       //For Gate Open
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, 0);
-		delay(3000);
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, 0);        //Stop
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, 0);
-		delay(2000);
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, 0);       //For Gate Close
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, 1);
-		delay(3000);
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, 0);        //Stop
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, 0);
-	}
-//	HAL_Delay(3000);
-//	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, 0);
-//	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, 1);
-}
 /**
   * @brief System Clock Configuration
   * @retval None
@@ -236,7 +240,7 @@ static void MX_USART1_UART_Init(void)
   huart1.Init.WordLength = UART_WORDLENGTH_8B;
   huart1.Init.StopBits = UART_STOPBITS_1;
   huart1.Init.Parity = UART_PARITY_NONE;
-  huart1.Init.Mode = UART_MODE_TX_RX;
+  huart1.Init.Mode = UART_MODE_RX;
   huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
   huart1.Init.OverSampling = UART_OVERSAMPLING_16;
   if (HAL_UART_Init(&huart1) != HAL_OK)
